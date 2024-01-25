@@ -1,10 +1,11 @@
 public class Person
 {
-
+    // Instance Variables
     private String firstName;
     private String lastName;
     private String phoneNumber;
 
+    // Constructor
     public Person(String firstName, String lastName, String phoneNumber)
     {
         this.firstName = firstName;
@@ -12,6 +13,7 @@ public class Person
         this.phoneNumber = phoneNumber;
     }
 
+    // Getters and Setters
     public String getFirstName()
     {
         return firstName;
@@ -33,6 +35,7 @@ public class Person
 
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
+    // ToString
     public String toString()
     {
         return firstName + " " + lastName + " - #" + phoneNumber;

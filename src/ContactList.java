@@ -10,19 +10,21 @@ public class ContactList
     private Scanner s;
 
 
+    // Constructor
     public ContactList()
     {
         contacts = new ArrayList<Person>();
         s = new Scanner(System.in);
     }
 
-    //check back because you need to return it as the correct thing i.e Student vs athlete
+    // Just returns contacts
     public ArrayList<Person> getContacts()
     {
         return contacts;
     }
 
 
+    // Adds contacts given to the arrayList
     public void addContacts()
     {
         System.out.println("Select a type of contact to add: \n1. Student \n2. Athlete");
@@ -57,6 +59,7 @@ public class ContactList
         }
     }
 
+    // Prints out all contacts
     public void printContacts()
     {
         for (Person s : contacts)
@@ -65,6 +68,7 @@ public class ContactList
         }
     }
 
+    // Sorts the Contacts based on user input
     public void sort(int sorter)
     {
 
@@ -75,18 +79,22 @@ public class ContactList
                 Person person1 = contacts.get(j);
                 Person person2 = contacts.get(j + 1);
                 int result = 0;
+                // Sorts by first name
                 if (sorter == 0)
                 {
                     result = person1.getFirstName().compareTo(person2.getFirstName());
                 }
+                // Sorts by last name
                 else if (sorter == 1)
                 {
                     result = person1.getLastName().compareTo(person2.getLastName());
                 }
+                // Sorts by phone number
                 else if (sorter == 2)
                 {
                     result = person1.getPhoneNumber().compareTo(person2.getPhoneNumber());
                 }
+                // Swapper
                 if (result > 0)
                 {
                     Collections.swap(contacts, j, j + 1);
@@ -95,6 +103,7 @@ public class ContactList
         }
     }
 
+    // Prints only the students
     public void listStudents()
     {
         for (Person s : contacts)
@@ -106,6 +115,7 @@ public class ContactList
         }
     }
 
+    // Checks if the first name given equals any in the ArrayList
     public Person searchByFirstName(String firstName)
     {
         for (Person s : contacts)
@@ -118,6 +128,7 @@ public class ContactList
         return null;
     }
 
+    // Checks if the last name given equals any in the ArrayList
     public Person searchByLastName(String lastName)
     {
         for (Person s : contacts)
@@ -130,6 +141,7 @@ public class ContactList
         return null;
     }
 
+    // Checks if the phone number given equals any in the ArrayList
     public Person searchByPhoneNumber(String phoneNumber)
     {
         for (Person s : contacts)
@@ -142,10 +154,9 @@ public class ContactList
         return null;
     }
 
+    // Prints out the phone menu instructions
     public void printMenu()
     {
-        System.out.println("Welcome to your Contacts List");
-        System.out.println("Please pick from the following menu options\n");
         System.out.println("Menu: ");
         System.out.println("1. Add Contact");
         System.out.println("2. List All Contacts By First Name");
@@ -158,13 +169,18 @@ public class ContactList
         System.out.println("0. Exit");
     }
 
+    // Runs the code fully
     public void run()
     {
+        // Choice by default not 0-8
         int choice = 9;
 
-        printMenu();
+
+        System.out.println("Welcome to your Contacts List");
+        System.out.println("Please pick from the following menu options\n");
         while (choice != 0)
         {
+            printMenu();
             choice = s.nextInt();
             s.nextLine();
 
